@@ -1,10 +1,50 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+people:
+  class: sfDoctrineRouteCollection
+  options:
+    model:      Person
+    with_show:  true
+
+companies:
+  class: sfDoctrineRouteCollection
+  options:
+    model:      Company
+    with_show:  true
+
+notes_create:
+  url:     /notes
+  class:   sfDoctrineRoute
+  options: { model: Note, type: object }
+  param:   { module: notes, action: create }
+  requirements: { sf_method: POST }
+
+contacts_show:
+  url:      /contacts/:id
+  class:    sfDoctrineRoute
+  options:  { model: Entity, type: object, method: getForShow }
+  param:    { module: contacts, action: show }
+  requirements: { sf_method: GET }
+
+contacts_ajax:
+  url:   /contacts.json
+  param: { module: contacts, action: ajaxList }
+
+contacts:
+  url:   /contacts
+  param: { module: contacts, action: index }
+
+users:
+  class: sfDoctrineRouteCollection
+  options:
+    model:      sfGuardUser
+    object_actions: { password: get, password_update: put }
+
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: contacts, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules
