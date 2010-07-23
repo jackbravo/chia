@@ -108,7 +108,4 @@ Note:
     Entity:
       foreignAlias: Notes
       onDelete:     CASCADE
-    Project:
-      foreignAlias: Notes
-      onDelete:     CASCADE
 
