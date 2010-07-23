@@ -3,18 +3,25 @@
 /**
  * Company form.
  *
- * @package    chia
- * @subpackage form
- * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @package    form
+ * @subpackage Company
+ * @version    SVN: $Id: sfPropelFormTemplate.php 6174 2007-11-27 06:22:40Z fabien $
  */
-class CompanyForm extends BaseCompanyForm
+class CompanyForm extends EntityForm
 {
-  /**
-   * @see EntityForm
-   */
   public function configure()
   {
-    parent::configure();
+    $this->widgetSchema->setNameFormat('company[%s]');
+
+    unset($this['type'], $this['title']);
+  }
+
+  /**
+   * this function is needed because we inherit from EntityForm
+   * instead of BaseCompanyForm
+   */
+  public function getModelName()
+  {
+    return 'Company';
   }
 }
