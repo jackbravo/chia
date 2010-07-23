@@ -33,3 +33,14 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    standard_helpers:       [Partial, Cache, I18N]
+
+    enabled_modules:        [default, sfGuardAuth, sfGuardUser]
+
+  .actions:
+    login_module:           sfGuardAuth   # To be called when a non-authenticated user
+    login_action:           signin     # Tries to access a secure page
+
+    secure_module:          sfGuardAuth   # To be called when a user doesn't have
+    secure_action:          secure    # The credentials required for an action
