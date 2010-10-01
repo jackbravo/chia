@@ -30,7 +30,7 @@ Installation
 4. Initialize the database. On development you can just do:
 
     cd /your/projet/path
-    php symfony doctrine:build-all-reload
+    php symfony doctrine:build --all --and-load
 
 5. Apply your own configuration by creating your own app.yml and factories.yml
    and then setting the application address (to be used when sending emails)
