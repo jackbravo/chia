@@ -3,6 +3,7 @@ log
 *.swp
 *.swo
 *.svn*
+config/databases.yml
 apps/*/config/app.yml
 apps/front/config/factories.yml
 data/sql/schema.sql
